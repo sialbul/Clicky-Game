@@ -1,0 +1,25 @@
+.navbar {
+  background: #653bb5;
+  height: 60px;
+  text-align: center; 
+}
+
+.navbar ul {
+  margin: 0;
+  list-style-type:none;
+}
+
+.navbar li {
+  display: inline-block;
+}
+
+.navbar a {
+  color: white;
+  font-size: 1.3rem;
+  text-decoration: none;
+  margin: 5px;
+  line-height: 3;
+}
+.brand {text-align: left;}
+.resultMessage{text-align: center;}
+.score{text-align: right;}

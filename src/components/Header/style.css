@@ -1,0 +1,15 @@
+.header {
+    background: #f9b713;
+    color: black;
+    height: 250px;
+    text-align: center;
+  }
+  
+  .header h1 {
+    margin: 0px;
+    padding-bottom: 10px;
+    padding-top: 75px;
+    text-align: center;
+    font-size: 3rem;
+  }
+  
