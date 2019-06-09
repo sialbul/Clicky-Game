@@ -4,9 +4,13 @@ body {
   color: black;
 }
 .navbar {
-  background: pink;
+  background: orange;
   box-shadow: 0 3px 6px #999, 0 3px 6px #999;
 }
 
 .row{width: 100%;
 text-align: center;}
+
+#start{
+  color: black;
+}
