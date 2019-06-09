@@ -1,25 +1,26 @@
-import React from "react";
-import Counter from "../Counter";
+import React, { Component } from "react";
 import "./style.css";
 
-  
-function Navbar(props) {
-  return (
-    <nav className="navbar">
-      <ul>
-        <li class="brand">
-          <a href="/">Clicky Game</a>
-        </li>
-        <li class="resultMessage">You guessed correct!</li>
-        <li class="score">
-        <p className="card-text">Click Count:<Counter count={props.count}></Counter></p>
-        </li>
 
-      </ul>
-    </nav>
+class Navbar extends Component {
+  render() {
+    return (
+      <nav className="navbar navbar-default navbar-fixed-top">
+        <div class="row">
+          
+            <div class="col-md-4">
+              {this.props.message}</div>
+            <div class="col-md-4">
+              <p className="card-text">Score: {this.props.count}</p>
+            </div>
+            <div class="col-md-4">
+              <a href="/">Start Again</a>
+            </div>
+          </div>
+      </nav>
 
-  )
-
+    )
+  }
 }
 
 export default Navbar;
