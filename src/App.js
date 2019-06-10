@@ -11,6 +11,7 @@ class App extends Component {
     friends: friends,
     clickedImage: [],
     count: 0,
+    topScore: 0,
     message: "Let`s Start!"
   };
 
@@ -49,6 +50,9 @@ class App extends Component {
               count: 0,
               message: "Yay!You Win!"
             });
+            if (this.state.count > this.state.topScore) {
+                this.setState({ topScore: this.state.count});
+            }
           }
         })
       }
@@ -60,7 +64,7 @@ class App extends Component {
   return (
       <div>
         <Header />
-        <Navbar count={this.state.count} message={this.state.message}/>
+        <Navbar count={this.state.count} message={this.state.message} topScore={this.state.topScore}/>
         <Wrapper>
           {this.state.friends.map(friends => (
             <FriendCard
