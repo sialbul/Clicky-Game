@@ -12,6 +12,7 @@ class Navbar extends Component {
               {this.props.message}</div>
             <div class="col-md-4">
               <p className="card-text">Score: {this.props.count}</p>
+              <p className="card-text">TopScore: {this.state.topScore}</p>
             </div>
             <div class="col-md-4">
               <a href="/" id="start">Start Again</a>
