@@ -17,56 +17,59 @@ class App extends Component {
 
   clickedImage = event => {
     const currentImage = event.target.alt;
-    const ImageAlreadyClicked = this.state.clickedImage.indexOf(currentImage)> -1;
+    const ImageAlreadyClicked = this.state.clickedImage.indexOf(currentImage) > -1;
 
-    if(ImageAlreadyClicked) {
+    if (ImageAlreadyClicked) {
+      if (this.state.count > this.state.topScore) {
+        this.setState({ topScore: this.state.count });
+      }
       this.setState({
-        friends: this.state.friends.sort(function(a,b){
-          return 0.5 -Math.random();
+        friends: this.state.friends.sort(function (a, b) {
+          return 0.5 - Math.random();
         }),
         clickedImage: [],
-        count:0,
-        message:"You Lose. Play Again?",
-        topScore:this.state.count
+        count: 0,
+        message: "You Lose. Play Again?"
+
       });
 
-      }else{
-        this.setState({
-          friends: this.state.friends.sort(function(a,b){
-            return 0.5 - Math.random();
-          }),
-          clickedImage: this.state.clickedImage.concat(
-            currentImage
-          ),
-          count: this.state.count + 1,
-          message: "Good Job! Your memory is good!"
-        },
+    } else {
+      this.setState({
+        friends: this.state.friends.sort(function (a, b) {
+          return 0.5 - Math.random();
+        }),
+        clickedImage: this.state.clickedImage.concat(
+          currentImage
+        ),
+        count: this.state.count + 1,
+        message: "Good Job! Your memory is good!"
+      },
         () => {
-          if (this.state.count === 12){
+          if (this.state.count === 12) {
             this.setState({
-              friends:this.state.friends.sort(function(a,b){
+              friends: this.state.friends.sort(function (a, b) {
                 return 0.5 - Math.random();
               }),
-              clickedImage:[],
+              clickedImage: [],
               count: 0,
               message: "Yay!You Win!",
-              topScore:0
+              topScore: 0
             });
             if (this.state.count > this.state.topScore) {
-                this.setState({ topScore: this.state.count});
+              this.setState({ topScore: this.state.count });
             }
           }
         })
-      }
+    }
   }
 
- 
+
   // Map over this.state.friends and render a FriendCard component for each friend object
-  render(){    
-  return (
+  render() {
+    return (
       <div>
         <Header />
-        <Navbar count={this.state.count} message={this.state.message} topScore={this.state.topScore}/>
+        <Navbar count={this.state.count} message={this.state.message} topScore={this.state.topScore} />
         <Wrapper>
           {this.state.friends.map(friends => (
             <FriendCard
@@ -79,7 +82,8 @@ class App extends Component {
         </Wrapper>
       </div>
     );
-  }}
+  }
+}
 
 
 export default App;
