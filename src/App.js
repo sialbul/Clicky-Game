@@ -26,7 +26,8 @@ class App extends Component {
         }),
         clickedImage: [],
         count:0,
-        message:"You Lose. Play Again?"
+        message:"You Lose. Play Again?",
+        topScore:this.state.count
       });
 
       }else{
@@ -48,7 +49,8 @@ class App extends Component {
               }),
               clickedImage:[],
               count: 0,
-              message: "Yay!You Win!"
+              message: "Yay!You Win!",
+              topScore:0
             });
             if (this.state.count > this.state.topScore) {
                 this.setState({ topScore: this.state.count});
